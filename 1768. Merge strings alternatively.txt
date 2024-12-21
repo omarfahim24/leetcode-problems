@@ -5,28 +5,22 @@
  */
 var mergeAlternately = function(word1, word2) {
     let output = "";
-    let smallLength = 0;
-    let count = 0;
-    if(word1.length>word2.length){
-        smallLength = word2.length
+    let i = 0;
+    let j = 0;
+    while(i < word1.length && j < word2.length){
+        output += word1[i] + word2[j];
+        i++;
+        j++;
+    }
+    if(word1.length > word2.length){
+        for(let c = i; c < word1.length; c++){
+            output += word1[c];
+        }
     }
     else{
-        smallLength = word1.length;
-    }
-    for(let i = 0; i < smallLength; i++){
-        output = output + word1[i] + word2[i];
-        count++;
-
-    }
-    if(smallLength === word1.length){
-        for(let i = count; i < word2.length; i++){
-            output = output + word2[i];
+        for(let c = j; c < word2.length; c++){
+            output += word2[c];
         }
-    }
-    if(smallLength === word2.length){
-        for(let i = count; i < word1.length; i++){
-            output = output + word1[i];
-        }
-    }
+    }    
     return output;
 };
