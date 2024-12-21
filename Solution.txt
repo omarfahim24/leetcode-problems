@@ -1,0 +1,25 @@
+var kidsWithCandies = function(candies, extraCandies){
+    let result = [];
+    for(let i = 0; i < candies.length; i++){
+        let isGreatest = false;
+        for(let j = 0; j < candies.length; j++){
+            if(i === j){
+                continue;
+            }
+            if(candies[i] + extraCandies >= candies[j]){
+                isGreatest = true;
+            }
+            else{
+                isGreatest = false;
+                break;
+            }
+        }
+        if(!isGreatest){
+            result.push(false);
+        }
+        else{
+            result.push(true);
+        }
+    }
+    return result;
+}
