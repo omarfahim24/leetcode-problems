@@ -1,0 +1,32 @@
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {string}
+ */
+var mergeAlternately = function(word1, word2) {
+    let output = "";
+    let smallLength = 0;
+    let count = 0;
+    if(word1.length>word2.length){
+        smallLength = word2.length
+    }
+    else{
+        smallLength = word1.length;
+    }
+    for(let i = 0; i < smallLength; i++){
+        output = output + word1[i] + word2[i];
+        count++;
+
+    }
+    if(smallLength === word1.length){
+        for(let i = count; i < word2.length; i++){
+            output = output + word2[i];
+        }
+    }
+    if(smallLength === word2.length){
+        for(let i = count; i < word1.length; i++){
+            output = output + word1[i];
+        }
+    }
+    return output;
+};
